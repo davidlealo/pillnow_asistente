@@ -132,8 +132,8 @@ class MessageHandler {
     Resumen de tu cita:
     
     Nombre: ${appointment.name}
-    Nombre de la mascota: ${appointment.petName}
-    Tipo de mascota: ${appointment.petType}
+    Nombre del paciente: ${appointment.petName}
+    Tipo de operación: ${appointment.petType}
     Motivo: ${appointment.reason}
     
     Nos pondremos en contacto contigo pronto para confirmar la fecha y hora de tu cita.`
@@ -147,12 +147,12 @@ class MessageHandler {
       case 'name':
         state.name = message;
         state.step = 'petName';
-        response = "Gracias, Ahora, ¿Cuál es el nombre de tu Mascota?"
+        response = "Gracias, Ahora, ¿Cuál es el nombre del paciente?"
         break;
       case 'petName':
         state.petName = message;
         state.step = 'petType';
-        response = '¿Qué tipo de mascota es? (por ejemplo: perro, gato, huron, etc.)'
+        response = '¿Qué tipo de operación se realizó? '
         break;
       case 'petType':
         state.petType = message;
@@ -202,20 +202,20 @@ class MessageHandler {
       ],
       emails: [
         {
-          email: "contacto@medpet.com",
+          email: "contacto@pillnow.com",
           type: "WORK"
         }
       ],
       name: {
-        formatted_name: "MedPet Contacto",
-        first_name: "MedPet",
+        formatted_name: "PillNow Contacto",
+        first_name: "PillNow",
         last_name: "Contacto",
         middle_name: "",
         suffix: "",
         prefix: ""
       },
       org: {
-        company: "MedPet",
+        company: "PillNow",
         department: "Atención al Cliente",
         title: "Representante"
       },
@@ -228,7 +228,7 @@ class MessageHandler {
       ],
       urls: [
         {
-          url: "https://www.medpet.com",
+          url: "https://www.pillnow.com",
           type: "WORK"
         }
       ]
@@ -240,8 +240,8 @@ class MessageHandler {
   async sendLocation(to) {
     const latitude = 6.2071694;
     const longitude = -75.574607;
-    const name = 'Platzi Medellín';
-    const address = 'Cra. 43A #5A - 113, El Poblado, Medellín, Antioquia.'
+    const name = 'Pill Now';
+    const address = 'Avenida Providencia s/n, Comuna Providencia, Santiago.'
 
     await whatsappService.sendLocationMessage(to, latitude, longitude, name, address);
   }
