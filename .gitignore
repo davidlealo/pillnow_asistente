@@ -139,3 +139,4 @@ dist
 .env
 src/credentials/credentials.json
 .DS_Store
+.vercel

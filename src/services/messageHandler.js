@@ -120,8 +120,8 @@ class MessageHandler {
     const userData = [
       to,
       appointment.name,
-      appointment.petName,
-      appointment.petType,
+      appointment.pacienteName,
+      appointment.pacienteType,
       appointment.reason,
       new Date().toISOString()
     ]
@@ -132,8 +132,8 @@ class MessageHandler {
     Resumen de tu cita:
     
     Nombre: ${appointment.name}
-    Nombre del paciente: ${appointment.petName}
-    Tipo de operación: ${appointment.petType}
+    Nombre del paciente: ${appointment.pacienteName}
+    Tipo de operación: ${appointment.pacienteType}
     Motivo: ${appointment.reason}
     
     Nos pondremos en contacto contigo pronto para confirmar la fecha y hora de tu cita.`
@@ -146,16 +146,16 @@ class MessageHandler {
     switch (state.step) {
       case 'name':
         state.name = message;
-        state.step = 'petName';
+        state.step = 'pacienteName';
         response = "Gracias, Ahora, ¿Cuál es el nombre del paciente?"
         break;
-      case 'petName':
-        state.petName = message;
-        state.step = 'petType';
+      case 'pacienteName':
+        state.pacienteName = message;
+        state.step = 'pacienteType';
         response = '¿Qué tipo de operación se realizó? '
         break;
-      case 'petType':
-        state.petType = message;
+      case 'pacienteType':
+        state.pacienteType = message;
         state.step = 'reason';
         response = '¿Cuál es el motivo de la Consulta?';
         break;
